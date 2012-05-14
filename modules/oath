@@ -1,0 +1,20 @@
+# -*- text -*-
+#
+#  $Id$
+
+# Compares the a token generated with a token seed with the User-Password (TOTP)
+
+exec oath {
+	# wait for the program
+	wait = yes
+
+	# Compares the token with User-Password
+	program = "/usr/bin/oath_radius --time-step-size=60 --totp %{control:OTP-Token}"
+
+	input_pairs = request
+
+	output_pairs = control
+
+	shell_escape = yes
+
+}

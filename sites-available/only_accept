@@ -1,0 +1,13 @@
+authorize {
+	preprocess
+	update control {
+		Auth-Type := Accept
+	}	
+}
+authenticate {
+}
+post-auth {
+	Post-Auth-Type REJECT {
+		attr_filter.access_reject
+	}
+}
